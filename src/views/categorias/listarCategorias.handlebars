@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Categorías</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Lista de Categorías</h2>
+        <a href="/categorias/agregar" class="btn btn-success mb-3">Nueva Categoría</a>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each categorias}}
+                <tr>
+                    <td>{{this.Nombre_categoria}}</td>
+                    <td>{{this.Descripcion}}</td>
+                    <td>
+                        <a href="/categorias/editar/{{this.id_categoria}}" class="btn btn-warning">Editar</a>
+                        <form action="/categorias/eliminar/{{this.id_categoria}}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="3" class="text-center">No hay categorías disponibles</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

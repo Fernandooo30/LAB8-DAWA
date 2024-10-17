@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Lista de Libros</h2>
+        <a href="/libros/agregar" class="btn btn-success mb-3">Nuevo Libro</a>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Portada</th>
+                    <th>Categoría</th>
+                    <th>Fecha de Publicación</th>
+                    <th>ISBN</th>
+                    <th>Cantidad Disponible</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each libros}}
+                <tr>
+                    <td>{{this.Titulo}}</td>
+                    <td>{{this.Autor}}</td>
+                    <td>{{this.Portada}}</td>
+                    <td>{{this.Categoria.Nombre_categoria}}</td>
+                    <td>{{this.Fecha_publicacion}}</td>
+                    <td>{{this.ISBN}}</td>
+                    <td>{{this.Cantidad_disponible}}</td>
+                    <td>
+                        <a href="/libros/editar/{{this.id_libro}}" class="btn btn-warning">Editar</a>
+                        <form action="/libros/eliminar/{{this.id_libro}}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="8" class="text-center">No hay libros disponibles</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

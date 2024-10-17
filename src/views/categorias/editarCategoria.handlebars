@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Categoría</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Editar Categoría</h2>
+        <form action="/categorias/editar/{{categoria.id_categoria}}" method="POST">
+            <div class="form-group">
+                <label for="Nombre_categoria">Nombre</label>
+                <input type="text" class="form-control" id="Nombre_categoria" name="Nombre_categoria" value="{{categoria.Nombre_categoria}}" required>
+            </div>
+            <div class="form-group">
+                <label for="Descripcion">Descripción</label>
+                <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="{{categoria.Descripcion}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
+        </form>
+    </div>
+</body>
+</html>
